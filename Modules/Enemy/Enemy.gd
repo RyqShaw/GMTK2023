@@ -21,7 +21,6 @@ func actor_setup() -> void:
 func set_movement_target(target: Vector2) -> void:
 	navigation_agent.target_position = target
 	
-	
 func _on_reset_nav_timeout() -> void:
 	actor_setup()
 

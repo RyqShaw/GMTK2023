@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch5nxi1lsuyys"]
+[gd_scene load_steps=6 format=3 uid="uid://ch5nxi1lsuyys"]
 
 [ext_resource type="Script" path="res://Modules/Enemy/Enemy.gd" id="1_s7xjg"]
 [ext_resource type="Texture2D" uid="uid://iw1i467g8dib" path="res://icon.svg" id="2_scy88"]
+[ext_resource type="Script" path="res://Modules/Enemy/StateMachine/StateMachine.gd" id="3_4wlwb"]
+[ext_resource type="Script" path="res://Modules/Enemy/StateMachine/State.gd" id="4_bucnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4d4h"]
 size = Vector2(16, 16)
@@ -22,5 +24,14 @@ debug_enabled = true
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_4wlwb")
+
+[node name="FindGoal" type="Node" parent="StateMachine"]
+script = ExtResource("4_bucnp")
+
+[node name="FightEnemies" type="Node" parent="StateMachine"]
+script = ExtResource("4_bucnp")
 
 [connection signal="timeout" from="ResetNav" to="." method="_on_reset_nav_timeout"]
