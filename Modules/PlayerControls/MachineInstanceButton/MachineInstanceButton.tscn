@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://g26mcahcpuby"]
+
+[ext_resource type="Script" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.gd" id="1_xihr7"]
+
+[node name="MachineInstanceButton" type="Button"]
+custom_minimum_size = Vector2(200, 0)
+action_mode = 0
+text = "Machine 1"
+script = ExtResource("1_xihr7")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
