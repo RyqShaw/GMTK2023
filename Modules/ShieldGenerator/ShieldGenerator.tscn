@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb24awbc5nfy6"]
+
+[ext_resource type="Texture2D" uid="uid://dojcy1sivh3g8" path="res://Art Assets/CosmicLegacy_PetricakeGamesPNG.png" id="1_dkv46"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdxwp"]
+radius = 14.4928
+height = 32.6445
+
+[node name="ShieldGenerator" type="StaticBody2D"]
+
+[node name="ShieldGeneratorImage" type="Node2D" parent="."]
+
+[node name="TopLeft" type="Sprite2D" parent="ShieldGeneratorImage"]
+texture = ExtResource("1_dkv46")
+offset = Vector2(-8, -8)
+hframes = 17
+vframes = 8
+frame = 100
+
+[node name="TopRight" type="Sprite2D" parent="ShieldGeneratorImage"]
+texture = ExtResource("1_dkv46")
+offset = Vector2(8, -8)
+hframes = 17
+vframes = 8
+frame = 101
+
+[node name="BottomLeft" type="Sprite2D" parent="ShieldGeneratorImage"]
+texture = ExtResource("1_dkv46")
+offset = Vector2(-8, 8)
+hframes = 17
+vframes = 8
+frame = 117
+
+[node name="BottomRight" type="Sprite2D" parent="ShieldGeneratorImage"]
+texture = ExtResource("1_dkv46")
+offset = Vector2(8, 8)
+hframes = 17
+vframes = 8
+frame = 118
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = -1.5708
+scale = Vector2(0.966, 0.980258)
+shape = SubResource("CapsuleShape2D_bdxwp")
