@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch5nxi1lsuyys"]
+[gd_scene load_steps=9 format=3 uid="uid://ch5nxi1lsuyys"]
 
 [ext_resource type="Script" path="res://Modules/Enemy/Enemy.gd" id="1_s7xjg"]
 [ext_resource type="Texture2D" uid="uid://iw1i467g8dib" path="res://icon.svg" id="2_scy88"]
+[ext_resource type="Script" path="res://Resources/Stats/EnemyStats.gd" id="2_tsgd0"]
+[ext_resource type="Script" path="res://Modules/Enemy/StateMachine/StateMachine.gd" id="3_4wlwb"]
+[ext_resource type="Script" path="res://Modules/Enemy/FindGoal.gd" id="4_5qhns"]
+[ext_resource type="Script" path="res://Modules/Enemy/FightEnemies.gd" id="5_ygf31"]
+
+[sub_resource type="Resource" id="Resource_wx7ki"]
+script = ExtResource("2_tsgd0")
+ACCEL = 250
+MAX_SPEED = 100
+FRIC = 400
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4d4h"]
 size = Vector2(16, 16)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_s7xjg")
+enemy_stats = SubResource("Resource_wx7ki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
@@ -23,4 +34,14 @@ debug_enabled = true
 wait_time = 0.25
 autostart = true
 
-[connection signal="timeout" from="ResetNav" to="." method="_on_reset_nav_timeout"]
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_4wlwb")
+initial_state = NodePath("FindGoal")
+
+[node name="FindGoal" type="Node" parent="StateMachine"]
+script = ExtResource("4_5qhns")
+
+[node name="FightEnemies" type="Node" parent="StateMachine"]
+script = ExtResource("5_ygf31")
+
+[connection signal="timeout" from="ResetNav" to="StateMachine/FindGoal" method="_on_reset_nav_timeout"]
