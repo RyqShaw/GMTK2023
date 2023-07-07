@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ch5nxi1lsuyys"]
+[gd_scene load_steps=10 format=3 uid="uid://ch5nxi1lsuyys"]
 
 [ext_resource type="Script" path="res://Modules/Enemy/Enemy.gd" id="1_s7xjg"]
 [ext_resource type="Texture2D" uid="uid://iw1i467g8dib" path="res://icon.svg" id="2_scy88"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Modules/Enemy/StateMachine/StateMachine.gd" id="3_4wlwb"]
 [ext_resource type="Script" path="res://Modules/Enemy/FindGoal.gd" id="4_5qhns"]
 [ext_resource type="Script" path="res://Modules/Enemy/FightEnemies.gd" id="5_ygf31"]
+[ext_resource type="Script" path="res://Modules/Enemy/Wander.gd" id="7_letce"]
 
 [sub_resource type="Resource" id="Resource_wx7ki"]
 script = ExtResource("2_tsgd0")
@@ -43,5 +44,8 @@ script = ExtResource("4_5qhns")
 
 [node name="FightEnemies" type="Node" parent="StateMachine"]
 script = ExtResource("5_ygf31")
+
+[node name="Wander" type="Node" parent="StateMachine"]
+script = ExtResource("7_letce")
 
 [connection signal="timeout" from="ResetNav" to="StateMachine/FindGoal" method="_on_reset_nav_timeout"]
