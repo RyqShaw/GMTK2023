@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://bg8fov0doo7jv"]
 
 [ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
@@ -6,6 +7,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_7bhr5"]
 font_size = 36
+=======
+[gd_scene load_steps=3 format=3 uid="uid://dq2fxh81xxx4y"]
+
+[ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
+[ext_resource type="PackedScene" uid="uid://g26mcahcpuby" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.tscn" id="2_ugy8w"]
+>>>>>>> parent of fe02474 (Collision Fix, Camera, and new machines)
 
 [node name="PlayerControl" type="Control"]
 layout_mode = 3
@@ -41,6 +48,7 @@ text = "Machine 2"
 [node name="MachineInstanceButton3" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
 text = "Machine 3"
+<<<<<<< HEAD
 
 [node name="PowerLabel" type="Label" parent="."]
 layout_mode = 1
@@ -49,3 +57,5 @@ offset_bottom = 65.0
 text = "Power: 0"
 label_settings = SubResource("LabelSettings_7bhr5")
 script = ExtResource("3_7xq80")
+=======
+>>>>>>> parent of fe02474 (Collision Fix, Camera, and new machines)
