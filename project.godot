@@ -48,6 +48,7 @@ scroll_wheel_up={
 2d_physics/layer_3="Machines"
 2d_physics/layer_4="HeroHurtbox"
 2d_physics/layer_5="MachineHurtbox"
+2d_physics/layer_6="PlayerHitbox"
 
 [rendering]
 

@@ -1,8 +1,7 @@
 extends State
 
-
 @onready var hero : CharacterBody2D = $"../.."
-@onready var movement_target : Node = hero.movement_target
+@onready var movement_target : Node2D = hero.movement_target
 @onready var navigation_agent: NavigationAgent2D = $"../../NavigationAgent2D"
 @onready var sword_hitbox: Area2D = $"../../SwordHitbox"
 @onready var animation_tree: AnimationTree = $"../../AnimationTree"
