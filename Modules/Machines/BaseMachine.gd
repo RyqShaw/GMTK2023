@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var cost : int = 10
 
 func in_valid_spawn() -> void:
-	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas() or GlobalInfo.power != 0:
+	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas():
 		print($InValidArea.get_overlapping_bodies())
 		queue_free()
 	else: 

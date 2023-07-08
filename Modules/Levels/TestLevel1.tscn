@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
-[ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Enemy/Enemy.tscn" id="2_kdqoq"]
+[ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
 [ext_resource type="PackedScene" uid="uid://boep1q1usaw48" path="res://Modules/Machines/BaseMachine.tscn" id="4_7w5on"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
@@ -29,6 +29,6 @@ position = Vector2(702, 227)
 [node name="BaseMachine" parent="Ysort" instance=ExtResource("4_7w5on")]
 position = Vector2(364, 237)
 
-[node name="Enemy" parent="Ysort" node_paths=PackedStringArray("movement_target") instance=ExtResource("2_kdqoq")]
-position = Vector2(624, 335)
+[node name="Hero" parent="Ysort" node_paths=PackedStringArray("movement_target") instance=ExtResource("2_kdqoq")]
+position = Vector2(605, 327)
 movement_target = NodePath("../../Temp Target")

@@ -1,5 +1,5 @@
 extends Resource
-class_name EnemyStats
+class_name HeroStats
 
 @export var ACCEL = 250
 @export var MAX_SPEED = 100
