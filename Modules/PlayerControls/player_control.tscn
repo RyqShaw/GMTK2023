@@ -41,3 +41,11 @@ machine = ExtResource("3_g4spu")
 layout_mode = 2
 text = "Machine 3"
 machine = ExtResource("4_6pquj")
+
+[node name="PowerLabel" type="Label" parent="."]
+layout_mode = 1
+offset_right = 205.0
+offset_bottom = 65.0
+text = "Power: 0"
+label_settings = SubResource("LabelSettings_7bhr5")
+script = ExtResource("3_7xq80")

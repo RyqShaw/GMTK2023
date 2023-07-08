@@ -30,9 +30,6 @@ y_sort_enabled = true
 [node name="PowerGenerator" parent="Ysort" instance=ExtResource("5_i555a")]
 position = Vector2(702, 227)
 
-[node name="BaseMachine" parent="Ysort" instance=ExtResource("4_7w5on")]
-position = Vector2(364, 237)
-
 [node name="Hero" parent="Ysort" node_paths=PackedStringArray("movement_target") instance=ExtResource("2_kdqoq")]
 position = Vector2(605, 327)
 movement_target = NodePath("../../Temp Target")
