@@ -22,7 +22,7 @@ func _ready() -> void:
 	state = IDLE
 
 func in_valid_spawn() -> void:
-	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas() or cost > GlobalInfo.power or GlobalInfo.baseMachineNumber >= GlobalInfo.baseMachineLimit:
+	if $InValidArea.has_overlapping_bodies() or cost > GlobalInfo.power or GlobalInfo.baseMachineNumber >= GlobalInfo.baseMachineLimit:
 		queue_free()
 	else:
 		GlobalInfo.power -= cost

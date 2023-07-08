@@ -501,6 +501,8 @@ shape = SubResource("CapsuleShape2D_4g0hi")
 disabled = true
 
 [node name="EnemyDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection"]
 shape = SubResource("CircleShape2D_0mjk8")

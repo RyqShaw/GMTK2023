@@ -63,22 +63,18 @@ func update_movement_target():
 					closest_target = target
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target
-			return closest_target
 	elif GlobalInfo.shieldGenRunning > GlobalInfo.minShieldGen:
 		if not hero.level_info.shield_generators.is_empty():
-			#print_debug(hero.level_info.shield_generators)
 			var closest_target = hero.level_info.shield_generators[0]
 			for target in hero.level_info.shield_generators:
 				if target.position.distance_to(hero.position) < closest_target.position.distance_to(hero.position):
 					closest_target = target
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target
-			return closest_target
 	else:
 		movement_target = hero.level_info.power_gen
 		set_movement_target(movement_target.global_position)
-	return "No Target Found"
-	#print_debug("Updated Movement Target: " + str(movement_target))
+	return movement_target
 
 func does_enemies_exist():
 	if enemy_detection.has_overlapping_bodies():
@@ -88,4 +84,4 @@ func does_enemies_exist():
 	return false
 		
 func _on_update_timer_timeout() -> void:
-	actor_setup()
+	update_movement_target()
