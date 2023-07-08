@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://boep1q1usaw48"]
+[gd_scene load_steps=14 format=3 uid="uid://boep1q1usaw48"]
 
 [ext_resource type="Script" path="res://Modules/Machines/BaseMachine.gd" id="1_l31ux"]
 [ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="1_svrhp"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="3_u4pg7"]
 [ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="4_ei0kf"]
+[ext_resource type="PackedScene" uid="uid://dc804p5r8kxq1" path="res://Modules/Machines/MachineSight.tscn" id="5_ingqq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53hio"]
 atlas = ExtResource("1_svrhp")
@@ -87,6 +88,8 @@ collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_vf1lv")
+
+[node name="MachineSight" parent="." instance=ExtResource("5_ingqq")]
 
 [connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

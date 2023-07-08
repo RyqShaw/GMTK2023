@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Resource" uid="uid://bhomdhba1iqtp" path="res://Modules/Levels/TestLevel1Info.tres" id="2_uj5ps"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
-[ext_resource type="PackedScene" uid="uid://cb24awbc5nfy6" path="res://Modules/ShieldGenerator/ShieldGenerator.tscn" id="6_u0iud"]
+[ext_resource type="PackedScene" uid="uid://cb24awbc5nfy6" path="res://Modules/Shield Generator/ShieldGenerator.tscn" id="6_u0iud"]
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
