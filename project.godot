@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalInfo="*res://Globals/GlobalInfo.gd"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 left_click_debug={
