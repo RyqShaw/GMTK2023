@@ -12,11 +12,10 @@ var zooming = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var inputX = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	var inputY = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+	var input_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-	position.x = lerp(position.x, position.x + inputX * SPEED * zoom.x, SPEED * delta)
-	position.y = lerp(position.y, position.y + inputY * SPEED * zoom.y, SPEED * delta)
+	position.x = lerp(position.x, position.x + input_dir.x * SPEED * zoom.x, SPEED * delta)
+	position.y = lerp(position.y, position.y + input_dir.y * SPEED * zoom.y, SPEED * delta)
 
 	zoom.x = lerp(zoom.x, zoom.x * zoomFactor, ZOOM_SPEED * delta)
 	zoom.y = lerp(zoom.y, zoom.y * zoomFactor, ZOOM_SPEED * delta)
