@@ -1,31 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://boep1q1usaw48"]
+[gd_scene load_steps=9 format=3 uid="uid://fg7jp6qyjo4c"]
 
-[ext_resource type="Script" path="res://Modules/Machines/BaseMachine.gd" id="1_l31ux"]
-[ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="1_svrhp"]
+[ext_resource type="Script" path="res://Modules/Machines/TreadMachine.gd" id="1_20l36"]
+[ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="2_yawd7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53hio"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_utedq"]
+atlas = ExtResource("2_yawd7")
+region = Rect2(0, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wo3i"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h53r5"]
+atlas = ExtResource("2_yawd7")
+region = Rect2(32, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrvcq"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw1fv"]
+atlas = ExtResource("2_yawd7")
+region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0pvd8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53hio")
+"texture": SubResource("AtlasTexture_utedq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4wo3i")
+"texture": SubResource("AtlasTexture_h53r5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hrvcq")
+"texture": SubResource("AtlasTexture_gw1fv")
 }],
 "loop": true,
 "name": &"default",
@@ -33,24 +33,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2iju"]
-radius = 11.0
-height = 32.0
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4fbv"]
 radius = 9.05539
 
-[node name="BaseMachine" type="CharacterBody2D"]
+[node name="TreadMachine" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_l31ux")
+script = ExtResource("1_20l36")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0pvd8")
 autoplay = "default"
-frame_progress = 0.369251
+frame_progress = 0.684942
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
