@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cb24awbc5nfy6"]
 
-[ext_resource type="Script" path="res://Modules/ShieldGenerator/ShieldGenerator.gd" id="1_5b45j"]
-[ext_resource type="Texture2D" uid="uid://dojcy1sivh3g8" path="res://Art Assets/CosmicLegacy_PetricakeGamesPNG.png" id="1_dkv46"]
-[ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="3_7jcgu"]
+[ext_resource type="Script" path="res://Modules/Shield Generator/ShieldGenerator.gd" id="1_wi4qw"]
+[ext_resource type="Texture2D" uid="uid://dojcy1sivh3g8" path="res://Art Assets/CosmicLegacy_PetricakeGamesPNG.png" id="2_057qx"]
+[ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="3_i2fpf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdxwp"]
 radius = 14.4928
@@ -13,33 +13,33 @@ radius = 14.0
 height = 32.0
 
 [node name="ShieldGenerator" type="StaticBody2D"]
-script = ExtResource("1_5b45j")
+script = ExtResource("1_wi4qw")
 
 [node name="ShieldGeneratorImage" type="Node2D" parent="."]
 
 [node name="TopLeft" type="Sprite2D" parent="ShieldGeneratorImage"]
-texture = ExtResource("1_dkv46")
+texture = ExtResource("2_057qx")
 offset = Vector2(-8, -8)
 hframes = 17
 vframes = 8
 frame = 100
 
 [node name="TopRight" type="Sprite2D" parent="ShieldGeneratorImage"]
-texture = ExtResource("1_dkv46")
+texture = ExtResource("2_057qx")
 offset = Vector2(8, -8)
 hframes = 17
 vframes = 8
 frame = 101
 
 [node name="BottomLeft" type="Sprite2D" parent="ShieldGeneratorImage"]
-texture = ExtResource("1_dkv46")
+texture = ExtResource("2_057qx")
 offset = Vector2(-8, 8)
 hframes = 17
 vframes = 8
 frame = 117
 
 [node name="BottomRight" type="Sprite2D" parent="ShieldGeneratorImage"]
-texture = ExtResource("1_dkv46")
+texture = ExtResource("2_057qx")
 offset = Vector2(8, 8)
 hframes = 17
 vframes = 8
@@ -51,7 +51,7 @@ rotation = -1.5708
 scale = Vector2(0.966, 0.980258)
 shape = SubResource("CapsuleShape2D_bdxwp")
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_7jcgu")]
+[node name="Hurtbox" parent="." instance=ExtResource("3_i2fpf")]
 collision_layer = 16
 collision_mask = 32
 

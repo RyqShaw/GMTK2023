@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc804p5r8kxq1"]
+
+[ext_resource type="Script" path="res://Modules/Machines/MachineSight.gd" id="1_rsed7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7w1k"]
+radius = 135.0
+
+[node name="MachineSight" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_rsed7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v7w1k")
+one_way_collision_margin = 60.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
