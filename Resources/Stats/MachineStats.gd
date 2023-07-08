@@ -1,12 +1,8 @@
 extends Resource
-class_name HeroStats
+class_name MachineStats
 
 signal no_health
 signal health_changed
-
-@export var ACCEL = 250
-@export var MAX_SPEED = 100
-@export var FRIC = 400
 
 @export var health = 10:
 	get:
