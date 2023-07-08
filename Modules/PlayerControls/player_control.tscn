@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg8fov0doo7jv"]
+[gd_scene load_steps=7 format=3 uid="uid://bg8fov0doo7jv"]
 
 [ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
 [ext_resource type="PackedScene" uid="uid://g26mcahcpuby" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.tscn" id="2_ugy8w"]
 [ext_resource type="Script" path="res://Modules/PlayerControls/PowerLabel.gd" id="3_7xq80"]
+[ext_resource type="PackedScene" uid="uid://dnnypwqbay5wo" path="res://Modules/Machines/GrabberMachine.tscn" id="3_aupbq"]
+[ext_resource type="PackedScene" uid="uid://251lutonsb52" path="res://Modules/Machines/TreadMachine.tscn" id="4_11me8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7bhr5"]
 font_size = 36
@@ -37,10 +39,12 @@ layout_mode = 2
 [node name="MachineInstanceButton2" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
 text = "Machine 2"
+machine = ExtResource("3_aupbq")
 
 [node name="MachineInstanceButton3" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
 text = "Machine 3"
+machine = ExtResource("4_11me8")
 
 [node name="PowerLabel" type="Label" parent="."]
 layout_mode = 1
