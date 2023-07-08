@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c32i5wky5myxe"]
+[gd_scene load_steps=8 format=3 uid="uid://c32i5wky5myxe"]
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
 [ext_resource type="PackedScene" uid="uid://cb24awbc5nfy6" path="res://Modules/ShieldGenerator/ShieldGenerator.tscn" id="6_u0iud"]
-
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
@@ -45,7 +44,6 @@ position = Vector2(921, 131)
 position = Vector2(313, 113)
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("top_left", "bottom_right") instance=ExtResource("2_7bf26")]
-
 position = Vector2(577, 326)
 top_left = NodePath("../TopLeft")
 bottom_right = NodePath("../BottomRight")

@@ -87,7 +87,6 @@ tracks/1/keys = {
 "method": &"attack_over"
 }]
 }
-
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
