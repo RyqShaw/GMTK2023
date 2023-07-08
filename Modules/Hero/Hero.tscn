@@ -1,29 +1,29 @@
 [gd_scene load_steps=14 format=3 uid="uid://ch5nxi1lsuyys"]
 
-[ext_resource type="Script" path="res://Modules/Enemy/Enemy.gd" id="1_s7xjg"]
-[ext_resource type="Script" path="res://Resources/Stats/EnemyStats.gd" id="2_tsgd0"]
-[ext_resource type="Script" path="res://Modules/Enemy/StateMachine/StateMachine.gd" id="3_4wlwb"]
-[ext_resource type="Texture2D" uid="uid://d0djxrvf6ae2k" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG.png" id="3_7h88b"]
-[ext_resource type="Script" path="res://Modules/Enemy/FindGoal.gd" id="4_5qhns"]
-[ext_resource type="Script" path="res://Modules/Enemy/FightEnemies.gd" id="5_ygf31"]
-[ext_resource type="Script" path="res://Modules/Enemy/Wander.gd" id="7_letce"]
+[ext_resource type="Script" path="res://Modules/Hero/Hero.gd" id="1_kisl0"]
+[ext_resource type="Script" path="res://Resources/Stats/HeroStats.gd" id="2_dap1s"]
+[ext_resource type="Texture2D" uid="uid://d0djxrvf6ae2k" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG.png" id="3_mmrct"]
+[ext_resource type="Script" path="res://Modules/Hero/StateMachine/StateMachine.gd" id="4_3ogni"]
+[ext_resource type="Script" path="res://Modules/Hero/FindGoal.gd" id="5_4iy8r"]
+[ext_resource type="Script" path="res://Modules/Hero/FightEnemies.gd" id="6_uoo35"]
+[ext_resource type="Script" path="res://Modules/Hero/Wander.gd" id="7_nmssn"]
 
-[sub_resource type="Resource" id="Resource_wx7ki"]
-script = ExtResource("2_tsgd0")
+[sub_resource type="Resource" id="Resource_kfx02"]
+script = ExtResource("2_dap1s")
 ACCEL = 250
 MAX_SPEED = 100
 FRIC = 400
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsbdf"]
-atlas = ExtResource("3_7h88b")
+atlas = ExtResource("3_mmrct")
 region = Rect2(0, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqo0y"]
-atlas = ExtResource("3_7h88b")
+atlas = ExtResource("3_mmrct")
 region = Rect2(32, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dud72"]
-atlas = ExtResource("3_7h88b")
+atlas = ExtResource("3_mmrct")
 region = Rect2(64, 288, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cw4na"]
@@ -47,10 +47,10 @@ animations = [{
 radius = 11.0
 height = 32.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Hero" type="CharacterBody2D"]
 collision_layer = 7
-script = ExtResource("1_s7xjg")
-enemy_stats = SubResource("Resource_wx7ki")
+script = ExtResource("1_kisl0")
+hero_stats = SubResource("Resource_kfx02")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cw4na")
@@ -68,16 +68,16 @@ wait_time = 0.25
 autostart = true
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_4wlwb")
+script = ExtResource("4_3ogni")
 initial_state = NodePath("FindGoal")
 
 [node name="FindGoal" type="Node" parent="StateMachine"]
-script = ExtResource("4_5qhns")
+script = ExtResource("5_4iy8r")
 
 [node name="FightEnemies" type="Node" parent="StateMachine"]
-script = ExtResource("5_ygf31")
+script = ExtResource("6_uoo35")
 
 [node name="Wander" type="Node" parent="StateMachine"]
-script = ExtResource("7_letce")
+script = ExtResource("7_nmssn")
 
 [connection signal="timeout" from="ResetNav" to="StateMachine/FindGoal" method="_on_reset_nav_timeout"]

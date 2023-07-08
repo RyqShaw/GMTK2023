@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var enemy_stats : EnemyStats
+@export var hero_stats : HeroStats
 
 @export var movement_target : Node
 @onready var navigation_agent : NavigationAgent2D = $NavigationAgent2D

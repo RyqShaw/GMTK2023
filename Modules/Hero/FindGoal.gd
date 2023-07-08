@@ -1,7 +1,7 @@
 extends State
 
-@onready var enemy : CharacterBody2D = $"../.."
-@onready var movement_target : Node = enemy.movement_target
+@onready var hero : CharacterBody2D = $"../.."
+@onready var movement_target : Node = hero.movement_target
 @onready var navigation_agent: NavigationAgent2D = $"../../NavigationAgent2D"
 
 func _ready() -> void:
@@ -23,14 +23,14 @@ func _on_reset_nav_timeout() -> void:
 
 func physics_update(delta):
 	if navigation_agent.is_navigation_finished():
-		enemy.velocity = enemy.velocity.move_toward(Vector2.ZERO, enemy.enemy_stats.FRIC*delta)
+		hero.velocity = hero.velocity.move_toward(Vector2.ZERO, hero.hero_stats.FRIC*delta)
 	else:
-		var current_agent_position := enemy.global_position
+		var current_agent_position := hero.global_position
 		var next_path_position := navigation_agent.get_next_path_position()
 		
 		var new_vel := next_path_position - current_agent_position
 		new_vel= new_vel.normalized()
-		new_vel = new_vel * enemy.enemy_stats.MAX_SPEED
+		new_vel = new_vel * hero.hero_stats.MAX_SPEED
 		
-		enemy.velocity = enemy.velocity.move_toward(new_vel, enemy.enemy_stats.ACCEL*delta)
-	enemy.move_and_slide()
+		hero.velocity = hero.velocity.move_toward(new_vel, hero.hero_stats.ACCEL*delta)
+	hero.move_and_slide()
