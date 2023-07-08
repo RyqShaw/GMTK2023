@@ -72,7 +72,10 @@ func update_movement_target():
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target
 	else:
-		movement_target = hero.level_info.power_gen
+		if hero.level_info.power_gen != null:
+			movement_target = hero.level_info.power_gen
+		else: 
+			movement_target = hero
 		set_movement_target(movement_target.global_position)
 	return movement_target
 

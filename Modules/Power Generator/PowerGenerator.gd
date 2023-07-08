@@ -5,6 +5,8 @@ extends StaticBody2D
 @export var health = 100:
 	set(value):
 		health = value
+		if health <= 0:
+			queue_free()
 
 func _ready() -> void:
 	GlobalInfo.shield_gen_running_changed.connect(shield_gen_down)
