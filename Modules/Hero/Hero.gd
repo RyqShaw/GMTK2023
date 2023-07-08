@@ -5,5 +5,5 @@ extends CharacterBody2D
 @export var movement_target : Node
 @onready var navigation_agent : NavigationAgent2D = $NavigationAgent2D
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
