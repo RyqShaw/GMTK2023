@@ -263,7 +263,8 @@ max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [node name="Hero" type="CharacterBody2D"]
-collision_layer = 7
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_kisl0")
 hero_stats = SubResource("Resource_kfx02")
 

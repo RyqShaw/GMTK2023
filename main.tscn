@@ -7,4 +7,6 @@
 
 [node name="TestLevel1" parent="." instance=ExtResource("1_2tsh0")]
 
-[node name="PlayerControl" parent="." instance=ExtResource("2_wkxuu")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerControl" parent="CanvasLayer" instance=ExtResource("2_wkxuu")]
