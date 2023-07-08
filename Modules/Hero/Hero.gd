@@ -13,6 +13,7 @@ signal weapon_changed
 @export var movement_target : Node2D
 @onready var navigation_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var state_machine: Node = $StateMachine
 
 func _ready() -> void:
 	self.connect("weapon_changed", set_attack_mode)
@@ -37,3 +38,7 @@ func _on_hurtbox_invincibility_ended() -> void:
 
 func hero_dead():
 	get_tree().quit()
+
+func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
+	print_debug("Enemy Can Be Hit!")
+	state_machine.transition_to("FightEnemies")

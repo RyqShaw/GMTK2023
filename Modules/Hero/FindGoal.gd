@@ -6,6 +6,7 @@ extends State
 @onready var navigation_agent: NavigationAgent2D = $"../../NavigationAgent2D"
 @onready var sword_hitbox: Area2D = $"../../SwordHitbox"
 @onready var animation_tree: AnimationTree = $"../../AnimationTree"
+@onready var enemy_can_be_hit: Area2D = $"../../EnemyCanBeHit"
 
 func _ready() -> void:
 	navigation_agent.path_desired_distance = 4.0
