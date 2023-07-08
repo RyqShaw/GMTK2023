@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c32i5wky5myxe"]
+[gd_scene load_steps=7 format=3 uid="uid://c32i5wky5myxe"]
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
+[ext_resource type="PackedScene" uid="uid://cvh2feaq6jcpv" path="res://Modules/PlayerCamera/PlayerCamera.tscn" id="2_7bf26"]
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
-[ext_resource type="PackedScene" uid="uid://boep1q1usaw48" path="res://Modules/Machines/BaseMachine.tscn" id="4_7w5on"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
+
+[node name="PlayerCamera" parent="." instance=ExtResource("2_7bf26")]
+position = Vector2(271, 522)
 
 [node name="MapTileset" parent="." instance=ExtResource("1_uuilk")]
 layer_0/name = "World Borders"
