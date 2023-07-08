@@ -9,7 +9,7 @@ extends StaticBody2D
 			shield_gen_destroyed()
 
 func shield_gen_destroyed():
-	GlobalInfo.shieldGenRunning -= GlobalInfo.shieldGenRunning - 1
+	GlobalInfo.shieldGenRunning -= 1
 	queue_free()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
