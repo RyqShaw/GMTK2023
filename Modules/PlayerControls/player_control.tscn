@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg8fov0doo7jv"]
+[gd_scene load_steps=9 format=3 uid="uid://bg8fov0doo7jv"]
 
 [ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
 [ext_resource type="PackedScene" uid="uid://g26mcahcpuby" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.tscn" id="2_ugy8w"]
 [ext_resource type="Script" path="res://Modules/PlayerControls/PowerLabel.gd" id="3_7xq80"]
 [ext_resource type="PackedScene" uid="uid://dnnypwqbay5wo" path="res://Modules/Machines/GrabberMachine.tscn" id="3_aupbq"]
 [ext_resource type="PackedScene" uid="uid://251lutonsb52" path="res://Modules/Machines/TreadMachine.tscn" id="4_11me8"]
+[ext_resource type="Script" path="res://Modules/PlayerControls/MachineNumberLabel.gd" id="6_5c52d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7bhr5"]
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_yt832"]
+font_size = 24
 
 [node name="PlayerControl" type="Control"]
 layout_mode = 3
@@ -60,3 +64,18 @@ offset_bottom = 65.0
 text = "Power: 0"
 label_settings = SubResource("LabelSettings_7bhr5")
 script = ExtResource("3_7xq80")
+
+[node name="MachineNumberLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -39.0
+offset_right = 105.0
+offset_bottom = 39.0
+grow_vertical = 2
+text = "Armors: 0/3
+Grabbers: 0/3
+Treads: 0/3"
+label_settings = SubResource("LabelSettings_yt832")
+script = ExtResource("6_5c52d")
