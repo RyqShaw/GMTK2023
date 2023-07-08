@@ -27,7 +27,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click_debug"):
 		if interaction_controller.selected_button != null:
-			if interaction_controller.world != null and mouse_not_in_area:
+			if interaction_controller.world != null and mouse_not_in_area and interaction_controller.selected_button.machine != null:
 				var mouse_pos = interaction_controller.world.get_local_mouse_position()
 				var instance = interaction_controller.selected_button.machine.instantiate()
 				instance.position = mouse_pos
@@ -35,7 +35,6 @@ func _input(event: InputEvent) -> void:
 
 
 func mouse_in_area() -> void:
-	print('In Area')
 	mouse_not_in_area = false
 
 func mouse_left_area() -> void:
