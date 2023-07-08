@@ -4,10 +4,12 @@ signal power_changed
 signal base_machine_num_changed
 signal grabber_machine_num_changed
 signal tread_machine_num_changed
+signal shield_gen_running_changed
 
 @export var baseMachineLimit = 10
 @export var grabberMachineLimit = 10
 @export var treadMachineLimit = 10
+@export var minShieldGen = 2
 
 var baseMachineNumber = 0:
 	set(value):
@@ -21,6 +23,11 @@ var treadMachineNumber = 0:
 	set(value):
 		treadMachineNumber = value
 		tread_machine_num_changed.emit()
+
+@export var shieldGenRunning = 4:
+	set(value):
+		shieldGenRunning = value
+		shield_gen_running_changed.emit()
 
 var power : int = 0:
 	get:

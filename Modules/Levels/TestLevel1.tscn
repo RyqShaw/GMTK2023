@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
-[ext_resource type="Resource" uid="uid://dcqci0e4l0sc5" path="res://Modules/Hero/HeroWeapons/SwordWeapon.tres" id="6_elhy4"]
+[ext_resource type="PackedScene" uid="uid://cb24awbc5nfy6" path="res://Modules/ShieldGenerator/ShieldGenerator.tscn" id="6_u0iud"]
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
@@ -25,12 +25,23 @@ script = ExtResource("3_ehf0s")
 y_sort_enabled = true
 
 [node name="PowerGenerator" parent="Ysort" instance=ExtResource("5_i555a")]
-position = Vector2(702, 227)
+position = Vector2(659, 272)
 
 [node name="Hero" parent="Ysort" node_paths=PackedStringArray("movement_target") instance=ExtResource("2_kdqoq")]
 position = Vector2(602, 330)
-weapon = ExtResource("6_elhy4")
 movement_target = NodePath("../../Temp Target")
+
+[node name="ShieldGenerator" parent="Ysort" instance=ExtResource("6_u0iud")]
+position = Vector2(346, 504)
+
+[node name="ShieldGenerator2" parent="Ysort" instance=ExtResource("6_u0iud")]
+position = Vector2(924, 513)
+
+[node name="ShieldGenerator3" parent="Ysort" instance=ExtResource("6_u0iud")]
+position = Vector2(921, 131)
+
+[node name="ShieldGenerator4" parent="Ysort" instance=ExtResource("6_u0iud")]
+position = Vector2(313, 113)
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_7bf26")]
 position = Vector2(577, 326)

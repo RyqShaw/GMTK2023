@@ -43,4 +43,5 @@ func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
 	state_machine.transition_to("FightEnemies")
 
 func attack_over() -> void:
+	
 	state_machine.transition_to("FindGoal")
