@@ -10,6 +10,7 @@ signal health_changed
 	set(value):
 		health = value
 		if health <= 0:
+			print("a little closer")
 			no_health.emit()
 			return
 		health_changed.emit()

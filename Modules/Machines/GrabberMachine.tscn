@@ -1,15 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnnypwqbay5wo"]
+[gd_scene load_steps=14 format=3 uid="uid://dnnypwqbay5wo"]
 
 [ext_resource type="Script" path="res://Modules/Machines/GrabberMachine.gd" id="1_pu4gt"]
 [ext_resource type="Texture2D" uid="uid://d0djxrvf6ae2k" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG.png" id="2_81nt8"]
-[ext_resource type="Script" path="res://Resources/Stats/MachineStats.gd" id="2_erdp4"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="4_slqri"]
 [ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="5_dm8bq"]
 [ext_resource type="PackedScene" uid="uid://dc804p5r8kxq1" path="res://Modules/Machines/MachineSight.tscn" id="6_eqg32"]
-
-[sub_resource type="Resource" id="Resource_d16fo"]
-script = ExtResource("2_erdp4")
-health = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wopmq"]
 atlas = ExtResource("2_81nt8")
@@ -56,7 +51,6 @@ radius = 9.05539
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_pu4gt")
-machine_stats = SubResource("Resource_d16fo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0pvd8")
