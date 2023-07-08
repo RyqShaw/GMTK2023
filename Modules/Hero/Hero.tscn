@@ -87,6 +87,7 @@ tracks/1/keys = {
 "method": &"attack_over"
 }]
 }
+
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -455,7 +456,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_g7sym")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
