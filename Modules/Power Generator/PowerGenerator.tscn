@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://h3dsp3ajvmbl"]
+[gd_scene load_steps=7 format=3 uid="uid://h3dsp3ajvmbl"]
 
 [ext_resource type="Script" path="res://Modules/Power Generator/PowerGenerator.gd" id="1_fuxgs"]
 [ext_resource type="Texture2D" uid="uid://cvanldoh0sp61" path="res://Art Assets/PowerSource.png" id="1_pqvnn"]
 [ext_resource type="Texture2D" uid="uid://dojcy1sivh3g8" path="res://Art Assets/CosmicLegacy_PetricakeGamesPNG.png" id="2_52ti0"]
+[ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="4_rp21i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgv0y"]
+radius = 31.0
+height = 98.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8x4i"]
 radius = 31.0
 height = 98.0
 
@@ -144,4 +149,16 @@ position = Vector2(0, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_kgv0y")
 
+[node name="Hurtbox" parent="." instance=ExtResource("4_rp21i")]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n8x4i")
+
 [connection signal="timeout" from="PowerTimer" to="." method="_on_power_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_hurtbox_invincibility_started"]
+
+[editable path="Hurtbox"]

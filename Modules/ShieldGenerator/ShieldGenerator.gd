@@ -5,17 +5,12 @@ extends StaticBody2D
 @export var health = 100:
 	set(value):
 		health = value
+		if health <= 0:
+			shield_gen_destroyed()
 
-func _ready() -> void:
-	GlobalInfo.shield_gen_running_changed.connect(shield_gen_down)
-
-func _on_power_timer_timeout():
-	GlobalInfo.power = GlobalInfo.power + 10
-
-func shield_gen_down():
-	if GlobalInfo.shieldGenRunning < GlobalInfo.minShieldGen:
-		#ACTIVATE POWER GEN HURTBOX
-		print("HURTBOX ACTIVATED")
+func shield_gen_destroyed():
+	GlobalInfo.shieldGenRunning -= GlobalInfo.shieldGenRunning - 1
+	queue_free()
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	health -= area.damage
