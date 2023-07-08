@@ -54,7 +54,7 @@ machine = ExtResource("4_11me8")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 disabled = true
-text = "Deselct"
+text = "Deselect"
 machine = null
 
 [node name="PowerLabel" type="Label" parent="."]

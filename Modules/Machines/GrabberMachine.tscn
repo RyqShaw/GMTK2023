@@ -53,6 +53,7 @@ radius = 9.05539
 
 [node name="GrabberMachine" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_pu4gt")
 machine_stats = SubResource("Resource_d16fo")
 
@@ -66,7 +67,6 @@ position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 3
 
