@@ -23,7 +23,7 @@ layer_2/name = "Objects"
 y_sort_enabled = true
 
 [node name="PowerGenerator" parent="Ysort" instance=ExtResource("5_i555a")]
-position = Vector2(659, 272)
+position = Vector2(622, 463)
 
 [node name="Hero" parent="Ysort" instance=ExtResource("2_kdqoq")]
 position = Vector2(602, 330)
