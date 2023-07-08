@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @export var cost : int = 10
-@export var machine_stats : MachineStats
+@export var machine_stats : MachineStats = MachineStats.new()
 @onready var hurtbox: Area2D = $Hurtbox
 
 func _ready() -> void:
-	machine_stats.connect("no_health", func died(): queue_free())
+	machine_stats.connect("no_health", died)
 
 func in_valid_spawn() -> void:
 	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas() or cost > GlobalInfo.power or GlobalInfo.treadMachineNumber >= GlobalInfo.treadMachineLimit:
@@ -28,3 +28,6 @@ func _on_hurtbox_invincibility_started() -> void:
 func _on_hurtbox_invincibility_ended() -> void:
 	pass # Replace with function body.
 
+func died():
+	queue_free()
+	GlobalInfo.treadMachineNumber -= 1
