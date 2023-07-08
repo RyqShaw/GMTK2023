@@ -5,9 +5,9 @@ signal base_machine_num_changed
 signal grabber_machine_num_changed
 signal tread_machine_num_changed
 
-@export var baseMachineLimit = 3
-@export var grabberMachineLimit = 3
-@export var treadMachineLimit = 3
+@export var baseMachineLimit = 10
+@export var grabberMachineLimit = 10
+@export var treadMachineLimit = 10
 
 var baseMachineNumber = 0:
 	set(value):
