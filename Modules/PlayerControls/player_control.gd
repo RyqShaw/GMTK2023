@@ -11,23 +11,23 @@ var mouse_not_in_area := true
 func _ready() -> void:
 	interaction_controller.player_controller = self
 	interaction_controller.creatures = $VBoxContainer/Creatures
-	interaction_controller.creatures = $VBoxContainer/Creatures/Deselect
+	interaction_controller.selected_button = $VBoxContainer/Creatures/Deselect
 	
-	machine_instance_button.connect("mouse_entered", mouse_in_area)
-	machine_instance_button_2.connect("mouse_entered", mouse_in_area)
-	machine_instance_button_3.connect("mouse_entered", mouse_in_area)
-	deselect.connect("mouse_entered", mouse_in_area)
+	machine_instance_button.mouse_entered.connect(mouse_in_area)
+	machine_instance_button_2.mouse_entered.connect(mouse_in_area)
+	machine_instance_button_3.mouse_entered.connect(mouse_in_area)
+	deselect.mouse_entered.connect(mouse_in_area)
 	
-	machine_instance_button.connect("mouse_exited", mouse_left_area)
-	machine_instance_button_2.connect("mouse_exited", mouse_left_area)
-	machine_instance_button_3.connect("mouse_exited", mouse_left_area)
-	deselect.connect("mouse_exited", mouse_left_area)
+	machine_instance_button.mouse_exited.connect(mouse_left_area)
+	machine_instance_button_2.mouse_exited.connect(mouse_left_area)
+	machine_instance_button_3.mouse_exited.connect(mouse_left_area)
+	deselect.mouse_exited.connect(mouse_left_area)
 	
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click_debug") and mouse_not_in_area:
+	if event.is_action_pressed("left_click_debug"):
 		if interaction_controller.selected_button != null:
-			if interaction_controller.world != null:
+			if interaction_controller.world != null and mouse_not_in_area:
 				var mouse_pos = interaction_controller.world.get_local_mouse_position()
 				var instance = interaction_controller.selected_button.machine.instantiate()
 				instance.position = mouse_pos
@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 
 
 func mouse_in_area() -> void:
+	print('In Area')
 	mouse_not_in_area = false
 
 func mouse_left_area() -> void:
