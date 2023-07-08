@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq2fxh81xxx4y"]
+[gd_scene load_steps=5 format=3 uid="uid://bg8fov0doo7jv"]
 
 [ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
 [ext_resource type="PackedScene" uid="uid://g26mcahcpuby" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.tscn" id="2_ugy8w"]
-[ext_resource type="Script" path="res://Modules/PlayerControls/Power.gd" id="3_hogm4"]
+[ext_resource type="Script" path="res://Modules/PlayerControls/PowerLabel.gd" id="3_7xq80"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7bhr5"]
 font_size = 36
@@ -42,10 +42,10 @@ text = "Machine 2"
 layout_mode = 2
 text = "Machine 3"
 
-[node name="Power" type="Label" parent="."]
+[node name="PowerLabel" type="Label" parent="."]
 layout_mode = 1
 offset_right = 205.0
 offset_bottom = 65.0
 text = "Power: 0"
 label_settings = SubResource("LabelSettings_7bhr5")
-script = ExtResource("3_hogm4")
+script = ExtResource("3_7xq80")

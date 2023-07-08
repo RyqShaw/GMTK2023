@@ -1,8 +1,11 @@
 extends State
 
+
 @onready var hero : CharacterBody2D = $"../.."
 @onready var movement_target : Node = hero.movement_target
 @onready var navigation_agent: NavigationAgent2D = $"../../NavigationAgent2D"
+@onready var sword_hitbox: Area2D = $"../../SwordHitbox"
+@onready var animation_tree: AnimationTree = $"../../AnimationTree"
 
 func _ready() -> void:
 	navigation_agent.path_desired_distance = 4.0
@@ -30,6 +33,8 @@ func physics_update(delta):
 		
 		var new_vel := next_path_position - current_agent_position
 		new_vel= new_vel.normalized()
+		animation_tree.set("parameters/blend_position", new_vel)
+		sword_hitbox.knockback_vector = new_vel
 		new_vel = new_vel * hero.hero_stats.MAX_SPEED
 		
 		hero.velocity = hero.velocity.move_toward(new_vel, hero.hero_stats.ACCEL*delta)
