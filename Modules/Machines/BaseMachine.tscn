@@ -47,7 +47,7 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vf1lv"]
 radius = 9.05539
 
-[node name="BaseMachine" type="CharacterBody2D"]
+[node name="BaseMachine" type="CharacterBody2D" groups=["EnemyMachine"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_l31ux")
