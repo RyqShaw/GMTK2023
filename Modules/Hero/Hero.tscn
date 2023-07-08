@@ -58,6 +58,36 @@ radius = 11.0
 radius = 15.0
 height = 50.0
 
+[sub_resource type="Animation" id="Animation_gknnm"]
+resource_name = "Attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_over"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_d5ssm"]
 length = 0.001
 tracks/0/type = "value"
@@ -349,36 +379,6 @@ tracks/3/keys = {
 "values": [1.5708]
 }
 
-[sub_resource type="Animation" id="Animation_gknnm"]
-resource_name = "Attack"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"attack_over"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oyxxm"]
 _data = {
 "Attack": SubResource("Animation_gknnm"),
@@ -431,7 +431,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_g7sym")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
