@@ -1,38 +1,38 @@
-[gd_scene load_steps=15 format=3 uid="uid://boep1q1usaw48"]
+[gd_scene load_steps=15 format=3 uid="uid://251lutonsb52"]
 
-[ext_resource type="Script" path="res://Modules/Machines/BaseMachine.gd" id="1_l31ux"]
-[ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="1_svrhp"]
-[ext_resource type="Script" path="res://Resources/Stats/MachineStats.gd" id="2_jt6rx"]
-[ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="3_u4pg7"]
-[ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="4_ei0kf"]
+[ext_resource type="Script" path="res://Modules/Machines/TreadMachine.gd" id="1_srwv1"]
+[ext_resource type="Script" path="res://Resources/Stats/MachineStats.gd" id="2_82sr2"]
+[ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="3_qmtoq"]
+[ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="4_xmovg"]
+[ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="5_wa2l3"]
 
-[sub_resource type="Resource" id="Resource_o8p1j"]
-script = ExtResource("2_jt6rx")
+[sub_resource type="Resource" id="Resource_64owa"]
+script = ExtResource("2_82sr2")
 health = 10
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53hio"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdxnt"]
+atlas = ExtResource("3_qmtoq")
+region = Rect2(0, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wo3i"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcrpr"]
+atlas = ExtResource("3_qmtoq")
+region = Rect2(32, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrvcq"]
-atlas = ExtResource("1_svrhp")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp6jk"]
+atlas = ExtResource("3_qmtoq")
+region = Rect2(64, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0pvd8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53hio")
+"texture": SubResource("AtlasTexture_sdxnt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4wo3i")
+"texture": SubResource("AtlasTexture_tcrpr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hrvcq")
+"texture": SubResource("AtlasTexture_tp6jk")
 }],
 "loop": true,
 "name": &"default",
@@ -40,8 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2iju"]
-radius = 11.0
-height = 32.0
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4fbv"]
 radius = 9.05539
@@ -51,19 +50,17 @@ radius = 9.05539
 [sub_resource type="CircleShape2D" id="CircleShape2D_vf1lv"]
 radius = 9.05539
 
-[node name="BaseMachine" type="CharacterBody2D"]
+[node name="TreadMachine" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_l31ux")
-machine_stats = SubResource("Resource_o8p1j")
+script = ExtResource("1_srwv1")
+machine_stats = SubResource("Resource_64owa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0pvd8")
 autoplay = "default"
-frame_progress = 0.775517
+frame_progress = 0.901718
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
@@ -79,16 +76,18 @@ wait_time = 0.1
 one_shot = true
 autostart = true
 
-[node name="Hurtbox" parent="." instance=ExtResource("3_u4pg7")]
+[node name="Hurtbox" parent="." instance=ExtResource("4_xmovg")]
 collision_layer = 256
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
+visible = false
 shape = SubResource("CapsuleShape2D_d13q3")
 
-[node name="Hitbox" parent="." instance=ExtResource("4_ei0kf")]
+[node name="Hitbox" parent="." instance=ExtResource("5_wa2l3")]
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_vf1lv")
 
 [connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]
