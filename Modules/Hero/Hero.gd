@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal weapon_changed
 
+@export var level_info : LevelInfo
 @export var hero_stats : HeroStats
 @export var weapon : HeroWeapon = preload("res://Modules/Hero/HeroWeapons/SwordWeapon.tres"):
 	get:
@@ -19,6 +20,7 @@ func _ready() -> void:
 	self.connect("weapon_changed", set_attack_mode)
 	#hero_stats.connect("health_changed", update_health)
 	hero_stats.connect("no_health", hero_dead)
+	level_info.hero = self
 	
 func _physics_process(_delta: float) -> void:
 	pass
@@ -43,5 +45,4 @@ func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
 	state_machine.transition_to("FightEnemies")
 
 func attack_over() -> void:
-	
 	state_machine.transition_to("FindGoal")
