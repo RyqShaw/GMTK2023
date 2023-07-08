@@ -2,10 +2,24 @@ extends CharacterBody2D
 
 @export var cost : int = 10
 @export var machine_stats : MachineStats = MachineStats.new()
+@export var acceleration = 300
+@export var maxSpeed = 55
+@export var friction = 200
+
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var playerDetectionZone = $MachineSight
+
+enum {
+	IDLE,
+	CHASE
+}
+
+var knockback = Vector2.ZERO
+var state = CHASE
 
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
+	state = IDLE
 
 func in_valid_spawn() -> void:
 	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas() or cost > GlobalInfo.power or GlobalInfo.grabberMachineNumber >= GlobalInfo.grabberMachineLimit:
@@ -31,3 +45,29 @@ func _on_hurtbox_invincibility_ended() -> void:
 func died():
 	queue_free()
 	GlobalInfo.grabberMachineNumber -= 1
+
+func _physics_process(delta):
+	match state:
+		IDLE:
+			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+			seek_player()
+			
+		CHASE:
+			var player = playerDetectionZone.player
+			if player != null:
+				accelerate_towards_point(player.global_position, delta)
+			else:
+				state = IDLE
+
+func accelerate_towards_point(point, delta):
+	var direction = global_position.direction_to(point)
+	velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
+	move_and_slide()
+
+func seek_player():
+	if playerDetectionZone.can_see_player():
+		state = CHASE
+
+func pick_random_state(state_list):
+	state_list.shuffle()
+	return state_list.pop_front()
