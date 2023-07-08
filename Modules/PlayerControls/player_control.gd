@@ -35,7 +35,6 @@ func _input(event: InputEvent) -> void:
 
 
 func mouse_in_area() -> void:
-	print('In Area')
 	mouse_not_in_area = false
 
 func mouse_left_area() -> void:

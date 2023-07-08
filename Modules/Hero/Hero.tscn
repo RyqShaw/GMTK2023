@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ch5nxi1lsuyys"]
+[gd_scene load_steps=31 format=3 uid="uid://ch5nxi1lsuyys"]
 
 [ext_resource type="Script" path="res://Modules/Hero/Hero.gd" id="1_kisl0"]
 [ext_resource type="Script" path="res://Resources/Stats/HeroStats.gd" id="2_dap1s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Modules/Hero/Wander.gd" id="7_nmssn"]
 [ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="8_h0wn4"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="8_peorm"]
+[ext_resource type="Script" path="res://Modules/HurtAndHitboxes/EnemyDetection.gd" id="10_8ic41"]
 
 [sub_resource type="Resource" id="Resource_kfx02"]
 script = ExtResource("2_dap1s")
@@ -118,6 +119,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6knf1"]
@@ -336,8 +349,39 @@ tracks/3/keys = {
 "values": [1.5708]
 }
 
+[sub_resource type="Animation" id="Animation_gknnm"]
+resource_name = "Attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordHitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_over"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oyxxm"]
 _data = {
+"Attack": SubResource("Animation_gknnm"),
 "RESET": SubResource("Animation_d5ssm"),
 "moving_down": SubResource("Animation_6knf1"),
 "moving_left": SubResource("Animation_v8d5o"),
@@ -415,12 +459,15 @@ shape = SubResource("CapsuleShape2D_y0s6t")
 [node name="SwordHitbox" parent="." instance=ExtResource("8_h0wn4")]
 position = Vector2(20, 0)
 rotation = 1.5708
+collision_layer = 32
 
 [node name="CollisionShape2D" parent="SwordHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_4g0hi")
 
 [node name="EnemyCanBeHit" parent="." instance=ExtResource("8_h0wn4")]
+visible = false
 position = Vector2(20, 0)
+script = ExtResource("10_8ic41")
 
 [node name="CollisionShape2D" parent="EnemyCanBeHit" index="0"]
 shape = SubResource("CapsuleShape2D_4g0hi")

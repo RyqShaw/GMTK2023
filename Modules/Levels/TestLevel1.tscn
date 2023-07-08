@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c32i5wky5myxe"]
+[gd_scene load_steps=8 format=3 uid="uid://c32i5wky5myxe"]
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
+[ext_resource type="Resource" uid="uid://dcqci0e4l0sc5" path="res://Modules/Hero/HeroWeapons/SwordWeapon.tres" id="6_elhy4"]
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
@@ -28,6 +29,7 @@ position = Vector2(702, 227)
 
 [node name="Hero" parent="Ysort" node_paths=PackedStringArray("movement_target") instance=ExtResource("2_kdqoq")]
 position = Vector2(602, 330)
+weapon = ExtResource("6_elhy4")
 movement_target = NodePath("../../Temp Target")
 
 [node name="PlayerCamera" parent="." instance=ExtResource("2_7bf26")]
