@@ -7,7 +7,6 @@ radius = 14.4928
 height = 32.6445
 
 [node name="ShieldGenerator" type="StaticBody2D"]
-collision_mask = 6
 
 [node name="ShieldGeneratorImage" type="Node2D" parent="."]
 
