@@ -19,7 +19,6 @@ func _ready() -> void:
 	self.connect("weapon_changed", set_attack_mode)
 	#hero_stats.connect("health_changed", update_health)
 	hero_stats.connect("no_health", hero_dead)
-	$SwordHitbox.area_entered.connect(func x(): print("HitBox hit"))
 	
 func _physics_process(_delta: float) -> void:
 	pass
@@ -41,7 +40,6 @@ func hero_dead():
 	get_tree().quit()
 
 func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
-	print_debug("Enemy Can Be Hit!")
 	state_machine.transition_to("FightEnemies")
 
 func attack_over() -> void:

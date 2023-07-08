@@ -20,7 +20,6 @@ func _on_summoning_sickness_timeout() -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	machine_stats.health -= area.damage
-	print(machine_stats.health)
 	hurtbox.start_invincibility(0.6)
 
 func _on_hurtbox_invincibility_started() -> void:
