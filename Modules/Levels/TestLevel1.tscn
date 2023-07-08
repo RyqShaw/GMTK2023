@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c32i5wky5myxe"]
+[gd_scene load_steps=8 format=3 uid="uid://c32i5wky5myxe"]
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="2_kdqoq"]
 [ext_resource type="Script" path="res://Modules/Levels/Temp Target.gd" id="3_ehf0s"]
+[ext_resource type="PackedScene" uid="uid://boep1q1usaw48" path="res://Modules/Machines/BaseMachine.tscn" id="4_7w5on"]
+[ext_resource type="PackedScene" uid="uid://386kb3p0mxxo" path="res://Modules/PlayerCamera/PlayerCamera.tscn" id="4_ejopp"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
 
 [node name="TestLevel1" type="Node2D"]
@@ -18,6 +20,9 @@ layer_2/name = "Objects"
 [node name="Temp Target" type="Marker2D" parent="."]
 position = Vector2(271, 522)
 script = ExtResource("3_ehf0s")
+
+[node name="PlayerCamera" parent="." instance=ExtResource("4_ejopp")]
+position = Vector2(40.6933, 40.2583)
 
 [node name="Ysort" type="Node2D" parent="."]
 y_sort_enabled = true

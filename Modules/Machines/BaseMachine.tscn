@@ -53,13 +53,14 @@ radius = 9.05539
 
 [node name="BaseMachine" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_l31ux")
 machine_stats = SubResource("Resource_njgmv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0pvd8")
 autoplay = "default"
-frame_progress = 0.775517
+frame_progress = 0.369251
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
