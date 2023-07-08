@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg8fov0doo7jv"]
+[gd_scene load_steps=11 format=3 uid="uid://bg8fov0doo7jv"]
 
 [ext_resource type="Script" path="res://Modules/PlayerControls/player_control.gd" id="1_yt4kj"]
 [ext_resource type="PackedScene" uid="uid://g26mcahcpuby" path="res://Modules/PlayerControls/MachineInstanceButton/MachineInstanceButton.tscn" id="2_ugy8w"]
@@ -6,11 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dnnypwqbay5wo" path="res://Modules/Machines/GrabberMachine.tscn" id="3_aupbq"]
 [ext_resource type="PackedScene" uid="uid://251lutonsb52" path="res://Modules/Machines/TreadMachine.tscn" id="4_11me8"]
 [ext_resource type="Script" path="res://Modules/PlayerControls/MachineNumberLabel.gd" id="6_5c52d"]
+[ext_resource type="Script" path="res://Modules/PlayerControls/ShieldGenNumLabel.gd" id="7_o6uho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7bhr5"]
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_yt832"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5tna"]
 font_size = 24
 
 [node name="PlayerControl" type="Control"]
@@ -79,3 +83,17 @@ Grabbers: 0/3
 Treads: 0/3"
 label_settings = SubResource("LabelSettings_yt832")
 script = ExtResource("6_5c52d")
+
+[node name="ShieldGenNumLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Shield Generators Running: 4
+Min Generators Needed: 2"
+label_settings = SubResource("LabelSettings_g5tna")
+horizontal_alignment = 2
+script = ExtResource("7_o6uho")
