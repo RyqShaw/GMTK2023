@@ -5,4 +5,12 @@ extends Control
 func _ready() -> void:
 	interaction_controller.player_controller = self
 	interaction_controller.creatures = $VBoxContainer/Creatures
-	print(interaction_controller.creatures)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click_debug"):
+		if interaction_controller.selected_button != null:
+			if interaction_controller.world != null:
+				var mouse_pos := get_global_mouse_position()
+				var instance = interaction_controller.selected_button.machine.instantiate()
+				instance.position = mouse_pos
+				interaction_controller.world.add_child(instance)

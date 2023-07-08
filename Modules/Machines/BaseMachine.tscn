@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://boep1q1usaw48"]
+[gd_scene load_steps=9 format=3 uid="uid://boep1q1usaw48"]
 
 [ext_resource type="Script" path="res://Modules/Machines/BaseMachine.gd" id="1_l31ux"]
 [ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="1_svrhp"]
@@ -36,8 +36,11 @@ animations = [{
 radius = 11.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4fbv"]
+radius = 9.05539
+
 [node name="BaseMachine" type="CharacterBody2D"]
-collision_layer = 7
+collision_layer = 4
 script = ExtResource("1_l31ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -48,3 +51,17 @@ frame_progress = 0.423502
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_c2iju")
+
+[node name="InValidArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InValidArea"]
+shape = SubResource("CircleShape2D_h4fbv")
+
+[node name="SummoningSickness" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]

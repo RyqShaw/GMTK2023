@@ -1,7 +1,7 @@
 extends Button
 
 @export var interaction_controller = preload("res://Modules/PlayerControls/InteractionController.tres")
-@export var Machine : Node2D
+@export var machine := preload("res://Modules/Machines/BaseMachine.tscn")
 
 func _on_pressed() -> void:
 	interaction_controller.selected_button = self

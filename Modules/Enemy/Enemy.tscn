@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Modules/Enemy/FightEnemies.gd" id="5_ygf31"]
 [ext_resource type="Script" path="res://Modules/Enemy/Wander.gd" id="7_letce"]
 
-[sub_resource type="Resource" id="Resource_wx7ki"]
+[sub_resource type="Resource" id="Resource_0x202"]
 script = ExtResource("2_tsgd0")
 ACCEL = 250
 MAX_SPEED = 100
@@ -50,7 +50,7 @@ height = 32.0
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 7
 script = ExtResource("1_s7xjg")
-enemy_stats = SubResource("Resource_wx7ki")
+enemy_stats = SubResource("Resource_0x202")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cw4na")
