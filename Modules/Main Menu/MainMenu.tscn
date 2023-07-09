@@ -38,7 +38,7 @@ horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Your goal is to eliminate the daring Hero, Willaim, before he destroys enough shield generators and then your power generator
+text = "Your goal is to eliminate the daring Hero, William, before he destroys enough shield generators and then your power generator
 
 You control the world and can summon machines to help distract and defeat William, but 1 or 2 machines wont be able to do the job!
 
