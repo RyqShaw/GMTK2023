@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var playerDetectionZone = $MachineSight
-
+@onready var weapon = preload("res://Modules/Machines/MachineWeapons/Punch.tres")
 enum {
 	IDLE,
 	CHASE
@@ -20,6 +20,8 @@ var state = CHASE
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
 	state = IDLE
+	machine_stats.health = 200
+	$Hitbox.damage = weapon.damage
 
 func in_valid_spawn() -> void:
 	if $InValidArea.has_overlapping_bodies() or cost > GlobalInfo.power or GlobalInfo.baseMachineNumber >= GlobalInfo.baseMachineLimit:
@@ -71,3 +73,6 @@ func seek_player():
 func pick_random_state(state_list):
 	state_list.shuffle()
 	return state_list.pop_front()
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	velocity = (area.position - position)/4

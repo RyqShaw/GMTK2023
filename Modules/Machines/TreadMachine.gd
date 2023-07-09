@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var acceleration = 300
 @export var maxSpeed = 55
 @export var friction = 200
-@export var BULLET_SPEED = 2000
+@export var BULLET_SPEED = 5
 
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var playerDetectionZone = $MachineSight
@@ -17,6 +17,8 @@ extends CharacterBody2D
 
 var bullet = preload("res://Modules/Machines/MachineWeapons/bullet.tscn")
 var knockback = Vector2.ZERO
+var player_visible := false
+var can_shoot := true
 
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
@@ -48,6 +50,8 @@ func _physics_process(delta):
 		
 		velocity = velocity.move_toward(new_vel, acceleration*delta)
 	move_and_slide()
+	if player_visible and can_shoot:
+		fire()
 
 func in_valid_spawn() -> void:
 	if $InValidArea.has_overlapping_bodies() or $InValidArea.has_overlapping_areas() or cost > GlobalInfo.power or GlobalInfo.treadMachineNumber >= GlobalInfo.treadMachineLimit:
@@ -65,8 +69,10 @@ func fire():
 	var bullet_insatnce = bullet.instantiate()
 	bullet_insatnce.position = position
 	bullet_insatnce.rotation_degrees = rad_to_deg(get_angle_to(movement_target.position))
-	bullet_insatnce.apply_impulse((movement_target.position - position))
+	bullet_insatnce.apply_impulse((movement_target.position - position)*BULLET_SPEED)
 	get_tree().get_root().call_deferred("add_child", bullet_insatnce)
+	can_shoot = false
+	$FireCooldown.start()
 
 func _on_summoning_sickness_timeout() -> void:
 	in_valid_spawn()
@@ -89,4 +95,10 @@ func _on_update_timeout() -> void:
 	actor_setup()
 
 func _on_machine_sight_body_entered(body: Node2D) -> void:
-	fire()
+	player_visible = true
+
+func _on_fire_cooldown_timeout() -> void:
+	can_shoot = true
+
+func _on_machine_sight_body_exited(body: Node2D) -> void:
+	player_visible = false

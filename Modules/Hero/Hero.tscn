@@ -16,7 +16,7 @@ script = ExtResource("2_dap1s")
 ACCEL = 250
 MAX_SPEED = 100
 FRIC = 400
-health = 10
+health = 100
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsbdf"]
 atlas = ExtResource("3_mmrct")

@@ -80,18 +80,22 @@ shape = SubResource("CapsuleShape2D_d13q3")
 visible = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="update" type="Timer" parent="NavigationAgent2D"]
 wait_time = 0.1
 autostart = true
+
+[node name="FireCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_hurtbox_invincibility_started"]
 [connection signal="body_entered" from="MachineSight" to="." method="_on_machine_sight_body_entered"]
+[connection signal="body_exited" from="MachineSight" to="." method="_on_machine_sight_body_exited"]
 [connection signal="timeout" from="NavigationAgent2D/update" to="." method="_on_update_timeout"]
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
 
 [editable path="Hurtbox"]
 [editable path="MachineSight"]
