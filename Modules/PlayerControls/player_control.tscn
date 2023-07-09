@@ -43,15 +43,16 @@ alignment = 1
 
 [node name="MachineInstanceButton" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
+text = "Walnut9000"
 
 [node name="MachineInstanceButton2" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
-text = "Machine 2"
+text = "Bomb Launcher"
 machine = ExtResource("3_aupbq")
 
 [node name="MachineInstanceButton3" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
-text = "Machine 3"
+text = "Turret"
 machine = ExtResource("4_11me8")
 
 [node name="Deselect" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]

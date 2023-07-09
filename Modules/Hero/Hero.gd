@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal weapon_changed
+signal died
 
 @export var level_info : LevelInfo
 @export var hero_stats : HeroStats
@@ -41,6 +42,12 @@ func _on_hurtbox_invincibility_ended() -> void:
 
 func hero_dead():
 	level_info.hero = null
+	GlobalInfo.hero = null
+	var instance = preload("res://Modules/Main Menu/level_complete.tscn").instantiate()
+	var canvas_layer = CanvasLayer.new()
+	get_tree().root.add_child(canvas_layer)
+	canvas_layer.add_child(instance)
+	died.emit()
 	queue_free()
 
 func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
