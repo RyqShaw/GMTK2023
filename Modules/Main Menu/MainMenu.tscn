@@ -38,7 +38,20 @@ horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Your goal is to eliminate the daring hero before he destroys enough shield generators and then your power generator"
+text = "Your goal is to eliminate the daring Hero before he destroys enough shield generators and then your power generator
+
+You control the world and can summon machines to help distract and defeat the hero, but 1 or 2 machines wont be able to do the job!
+
+The three machines you have access to are:
+Walnut9000: A very tough guy, but doesnt do much damage
+Bomb Launcher: Hurls high damage bombs, but has to get close to the Hero to launch and cool down is high
+Turret: Long range gunner turret, doesnt do high damage, but can do damage fast!
+
+Controls:
+WASD or ARROW Keys to move camera
+Scroll Wheel to Zoom in and out
+
+Left Click to summon enemy once selected"
 horizontal_alignment = 1
 
 [node name="Jamlogo2023" type="Sprite2D" parent="."]

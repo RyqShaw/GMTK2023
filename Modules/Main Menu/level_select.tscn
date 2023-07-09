@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx6bjny87xjn3"]
+
+[ext_resource type="Script" path="res://Modules/Main Menu/LevelSelect.gd" id="1_bab28"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3tlf2"]
+font_size = 60
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bab28")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -37.0
+offset_right = 1193.0
+offset_bottom = 683.0
+color = Color(0.652344, 0.355469, 0.5, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -550.5
+offset_right = 550.5
+offset_bottom = 147.0
+grow_horizontal = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_3tlf2")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -441.0
+offset_top = -60.0
+offset_right = 441.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="GoBack" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -157.0
+offset_top = -96.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Go Back"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="level1"]
+[connection signal="pressed" from="GoBack" to="." method="_on_go_back_pressed"]
