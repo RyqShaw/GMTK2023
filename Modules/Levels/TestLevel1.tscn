@@ -60,3 +60,4 @@ position = Vector2(449, 242)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerControl" parent="CanvasLayer" instance=ExtResource("9_d7va6")]
+metadata/_edit_use_anchors_ = true
