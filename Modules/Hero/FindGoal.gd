@@ -59,7 +59,7 @@ func update_movement_target():
 		if not possible_targets.is_empty():
 			var closest_target = possible_targets[0] 
 			for target in possible_targets:
-				if target.position.distance_to(hero.position) < closest_target.position.distance_to(hero.position):
+				if navigation_agent.distance_to_target() < closest_target.position.distance_to(hero.position):
 					closest_target = target
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target
@@ -67,7 +67,7 @@ func update_movement_target():
 		if not hero.level_info.shield_generators.is_empty():
 			var closest_target = hero.level_info.shield_generators[0]
 			for target in hero.level_info.shield_generators:
-				if target.position.distance_to(hero.position) < closest_target.position.distance_to(hero.position):
+				if navigation_agent.distance_to_target() < closest_target.position.distance_to(hero.position):
 					closest_target = target
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target

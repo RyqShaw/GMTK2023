@@ -6,4 +6,4 @@ func _on_go_back_pressed() -> void:
 
 
 func level1() -> void:
-	get_tree().change_scene_to_packed(load("res://Modules/Levels/TestLevel1.tscn"))
+	get_tree().change_scene_to_packed(load("res://Modules/Levels/Level1.tscn"))

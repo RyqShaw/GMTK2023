@@ -59,6 +59,7 @@ text = "Bomb Launcher"
 machine = ExtResource("3_aupbq")
 
 [node name="Label" type="Label" parent="VBoxContainer/Creatures/MachineInstanceButton2"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = -30.0
 offset_right = 171.0
@@ -72,6 +73,7 @@ text = "Turret"
 machine = ExtResource("4_11me8")
 
 [node name="Label" type="Label" parent="VBoxContainer/Creatures/MachineInstanceButton3"]
+layout_mode = 0
 offset_left = 28.0
 offset_top = -30.0
 offset_right = 171.0
