@@ -41,7 +41,7 @@ radius = 11.0
 height = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4fbv"]
-radius = 20.0
+radius = 11.4018
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d13q3"]
 
@@ -60,11 +60,11 @@ autoplay = "default"
 frame_progress = 0.775517
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 3
 
@@ -85,6 +85,7 @@ collision_mask = 32
 shape = SubResource("CapsuleShape2D_d13q3")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 collision_mask = 8
 script = ExtResource("4_d7b82")
