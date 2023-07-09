@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_d0fbw")
 melee = true
-damage = 5.0
+damage = 0.0
 knockback_scale = 1.0

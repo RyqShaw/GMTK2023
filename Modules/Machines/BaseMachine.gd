@@ -20,7 +20,7 @@ var state = CHASE
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
 	state = IDLE
-	machine_stats.health = 200
+	machine_stats.health = 100
 	$Hitbox.damage = weapon.damage
 
 func in_valid_spawn() -> void:

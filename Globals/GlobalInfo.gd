@@ -6,9 +6,9 @@ signal grabber_machine_num_changed
 signal tread_machine_num_changed
 signal shield_gen_running_changed
 
-@export var baseMachineLimit = 10
-@export var grabberMachineLimit = 10
-@export var treadMachineLimit = 10
+@export var baseMachineLimit = 3
+@export var grabberMachineLimit = 2
+@export var treadMachineLimit = 5
 @export var minShieldGen = 2
 
 var resetbaseMachineLimit = baseMachineLimit

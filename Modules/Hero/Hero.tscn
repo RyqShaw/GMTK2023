@@ -16,7 +16,7 @@ script = ExtResource("2_dap1s")
 ACCEL = 250
 MAX_SPEED = 100
 FRIC = 400
-health = 100
+health = 200
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsbdf"]
 atlas = ExtResource("3_mmrct")
@@ -59,7 +59,7 @@ radius = 15.0
 height = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mjk8"]
-radius = 300.0
+radius = 252.008
 
 [sub_resource type="Animation" id="Animation_gknnm"]
 resource_name = "Attack"
@@ -458,6 +458,7 @@ visible = false
 shape = SubResource("CapsuleShape2D_g7sym")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
@@ -501,7 +502,6 @@ shape = SubResource("CapsuleShape2D_4g0hi")
 disabled = true
 
 [node name="EnemyDetection" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 
@@ -522,6 +522,14 @@ parameters/blend_position = Vector2(0, 0.00480354)
 [node name="UpdateTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="Health" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -43.0
+offset_right = 48.0
+offset_bottom = -17.0
+text = "Health: 200"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="ResetNav" to="StateMachine/FindGoal" method="_on_reset_nav_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
