@@ -29,6 +29,11 @@ position = Vector2(351, 783)
 [node name="ShieldGenerator4" parent="Ysort/ShieldGenerators" index="3" instance=ExtResource("2_js58u")]
 position = Vector2(1151, 927)
 
+[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("top_left", "bottom_right")]
+position = Vector2(638, 514)
+top_left = NodePath("../TopLeft")
+bottom_right = NodePath("../BottomRight")
+
 [node name="TopLeft" parent="." index="3"]
 position = Vector2(-416, -272)
 

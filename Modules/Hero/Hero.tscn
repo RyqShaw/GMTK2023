@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ch5nxi1lsuyys"]
+[gd_scene load_steps=33 format=3 uid="uid://ch5nxi1lsuyys"]
 
 [ext_resource type="Script" path="res://Modules/Hero/Hero.gd" id="1_kisl0"]
 [ext_resource type="Script" path="res://Resources/Stats/HeroStats.gd" id="2_dap1s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Modules/Hero/Wander.gd" id="7_nmssn"]
 [ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="8_h0wn4"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="8_peorm"]
+[ext_resource type="Resource" uid="uid://dcqci0e4l0sc5" path="res://Modules/Hero/HeroWeapons/SwordWeapon.tres" id="10_2r6y6"]
 [ext_resource type="Script" path="res://Modules/HurtAndHitboxes/EnemyDetection.gd" id="10_8ic41"]
 
 [sub_resource type="Resource" id="Resource_kfx02"]
@@ -458,7 +459,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_g7sym")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
@@ -488,6 +488,7 @@ visible = false
 position = Vector2(20, 0)
 rotation = 1.5708
 collision_layer = 32
+weapon = ExtResource("10_2r6y6")
 
 [node name="CollisionShape2D" parent="SwordHitbox" index="0"]
 shape = SubResource("CapsuleShape2D_4g0hi")

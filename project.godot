@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalInfo="*res://Globals/GlobalInfo.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [filesystem]
 
 import/blender/enabled=false
