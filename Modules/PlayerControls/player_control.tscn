@@ -106,9 +106,9 @@ offset_top = -51.0
 offset_right = 176.0
 offset_bottom = 60.0
 grow_vertical = 2
-text = "Armors: 0/3
-Grabbers: 0/3
-Treads: 0/3"
+text = "Walnut9000: 0/3
+Bomb Launcher: 0/3
+Turret: 0/3"
 label_settings = SubResource("LabelSettings_yt832")
 script = ExtResource("6_5c52d")
 

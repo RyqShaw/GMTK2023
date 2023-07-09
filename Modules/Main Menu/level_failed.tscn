@@ -56,7 +56,7 @@ text = "Retry"
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Go Back to Main Menu"
+text = "Go Back to Level Select"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Level Select" to="." method="_on_level_select_pressed"]

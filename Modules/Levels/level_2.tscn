@@ -29,5 +29,13 @@ position = Vector2(368, 735)
 [node name="ShieldGenerator4" parent="Ysort/ShieldGenerators" index="3" instance=ExtResource("2_sggmf")]
 position = Vector2(479, -36)
 
-[node name="CanvasLayer" parent="." index="5"]
-visible = false
+[node name="PlayerCamera" parent="." index="2" node_paths=PackedStringArray("top_left", "bottom_right")]
+position = Vector2(395, 381)
+top_left = NodePath("../TopLeft")
+bottom_right = NodePath("../BottomRight")
+
+[node name="TopLeft" parent="." index="3"]
+position = Vector2(-181, -215)
+
+[node name="BottomRight" parent="." index="4"]
+position = Vector2(1551, 847)
