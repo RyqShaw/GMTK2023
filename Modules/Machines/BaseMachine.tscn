@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://boep1q1usaw48"]
+[gd_scene load_steps=15 format=3 uid="uid://boep1q1usaw48"]
 
 [ext_resource type="Script" path="res://Modules/Machines/BaseMachine.gd" id="1_l31ux"]
 [ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="1_svrhp"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="3_u4pg7"]
-[ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="4_ei0kf"]
+[ext_resource type="Script" path="res://Modules/HurtAndHitboxes/Hitbox.gd" id="4_d7b82"]
 [ext_resource type="PackedScene" uid="uid://dc804p5r8kxq1" path="res://Modules/Machines/MachineSight.tscn" id="5_ingqq"]
+[ext_resource type="Resource" uid="uid://cw1qoodh0ot7r" path="res://Modules/Machines/MachineWeapons/Punch.tres" id="5_yoavx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53hio"]
 atlas = ExtResource("1_svrhp")
@@ -45,7 +46,7 @@ radius = 20.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d13q3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vf1lv"]
-radius = 9.05539
+radius = 19.105
 
 [node name="BaseMachine" type="CharacterBody2D" groups=["EnemyMachine"]]
 collision_layer = 4
@@ -58,11 +59,11 @@ autoplay = "default"
 frame_progress = 0.775517
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 3
 
@@ -82,19 +83,23 @@ collision_mask = 32
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape2D_d13q3")
 
-[node name="Hitbox" parent="." instance=ExtResource("4_ei0kf")]
-visible = false
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
 collision_mask = 8
+script = ExtResource("4_d7b82")
+weapon = ExtResource("5_yoavx")
+disabled_by_default = false
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_vf1lv")
 
 [node name="MachineSight" parent="." instance=ExtResource("5_ingqq")]
+visible = false
 
 [connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_hurtbox_invincibility_started"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 
 [editable path="Hurtbox"]
-[editable path="Hitbox"]

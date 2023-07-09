@@ -74,6 +74,7 @@ move_right={
 2d_physics/layer_5="MachineHurtbox"
 2d_physics/layer_6="PlayerHitbox"
 2d_physics/layer_7="MachineSight"
+2d_physics/layer_8="MachineHitbox"
 
 [rendering]
 

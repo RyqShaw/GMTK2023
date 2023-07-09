@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://251lutonsb52"]
+[gd_scene load_steps=12 format=3 uid="uid://251lutonsb52"]
 
 [ext_resource type="Script" path="res://Modules/Machines/TreadMachine.gd" id="1_srwv1"]
 [ext_resource type="Texture2D" uid="uid://0q27gfslp5tk" path="res://Art Assets/SciFiCreatures_NES_4x30_alphaBG_var02.png" id="3_qmtoq"]
 [ext_resource type="PackedScene" uid="uid://dlfqkisvchfoa" path="res://Modules/HurtAndHitboxes/Hurtbox.tscn" id="4_xmovg"]
-[ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="5_wa2l3"]
 [ext_resource type="PackedScene" uid="uid://dc804p5r8kxq1" path="res://Modules/Machines/MachineSight.tscn" id="6_f15k7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdxnt"]
@@ -43,9 +42,6 @@ radius = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d13q3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vf1lv"]
-radius = 9.05539
-
 [node name="TreadMachine" type="CharacterBody2D" groups=["EnemyMachine"]]
 collision_layer = 4
 collision_mask = 3
@@ -60,6 +56,7 @@ frame_progress = 0.901718
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 3
 
@@ -79,19 +76,26 @@ collision_mask = 32
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape2D_d13q3")
 
-[node name="Hitbox" parent="." instance=ExtResource("5_wa2l3")]
-visible = false
-collision_mask = 8
-
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource("CircleShape2D_vf1lv")
-
 [node name="MachineSight" parent="." instance=ExtResource("6_f15k7")]
+visible = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="update" type="Timer" parent="NavigationAgent2D"]
+wait_time = 0.1
+autostart = true
+
+[node name="FireCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="SummoningSickness" to="." method="_on_summoning_sickness_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_hurtbox_invincibility_started"]
+[connection signal="body_entered" from="MachineSight" to="." method="_on_machine_sight_body_entered"]
+[connection signal="body_exited" from="MachineSight" to="." method="_on_machine_sight_body_exited"]
+[connection signal="timeout" from="NavigationAgent2D/update" to="." method="_on_update_timeout"]
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
 
 [editable path="Hurtbox"]
-[editable path="Hitbox"]
+[editable path="MachineSight"]

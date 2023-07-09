@@ -21,6 +21,7 @@ func _ready() -> void:
 	#hero_stats.connect("health_changed", update_health)
 	hero_stats.connect("no_health", hero_dead)
 	level_info.hero = self
+	GlobalInfo.hero = self
 	
 func _physics_process(_delta: float) -> void:
 	pass
@@ -39,7 +40,8 @@ func _on_hurtbox_invincibility_ended() -> void:
 	pass # Replace with function body.
 
 func hero_dead():
-	get_tree().quit()
+	level_info.hero = null
+	queue_free()
 
 func _on_enemy_can_be_hit_area_entered(area: Area2D) -> void:
 	state_machine.transition_to("FightEnemies")

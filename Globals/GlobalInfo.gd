@@ -11,6 +11,8 @@ signal shield_gen_running_changed
 @export var treadMachineLimit = 10
 @export var minShieldGen = 2
 
+var hero : Node2D = null
+
 var baseMachineNumber = 0:
 	set(value):
 		baseMachineNumber = value
