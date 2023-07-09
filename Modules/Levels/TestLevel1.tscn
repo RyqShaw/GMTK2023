@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c32i5wky5myxe"]
+[gd_scene load_steps=10 format=3 uid="uid://c32i5wky5myxe"]
 
 [ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_k6ahi"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_uuilk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="5_i555a"]
 [ext_resource type="PackedScene" uid="uid://cb24awbc5nfy6" path="res://Modules/Shield Generator/ShieldGenerator.tscn" id="6_u0iud"]
 [ext_resource type="PackedScene" uid="uid://boep1q1usaw48" path="res://Modules/Machines/BaseMachine.tscn" id="8_31k2h"]
+[ext_resource type="PackedScene" uid="uid://bg8fov0doo7jv" path="res://Modules/PlayerControls/player_control.tscn" id="9_d7va6"]
 
 [node name="TestLevel1" type="Node2D"]
 script = ExtResource("1_k6ahi")
@@ -55,3 +56,7 @@ position = Vector2(1928, 1063)
 
 [node name="BaseMachine" parent="." instance=ExtResource("8_31k2h")]
 position = Vector2(449, 242)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerControl" parent="CanvasLayer" instance=ExtResource("9_d7va6")]
