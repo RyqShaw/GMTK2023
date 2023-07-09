@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HeroWeapon" load_steps=2 format=3 uid="uid://qwdwwdysjngx"]
+
+[ext_resource type="Script" path="res://Resources/Stats/HeroWeapon.gd" id="1_h6ffx"]
+
+[resource]
+script = ExtResource("1_h6ffx")
+melee = true
+damage = 15.0
+knockback_scale = 1.0

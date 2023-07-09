@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd5icyakn688y"]
+
+[ext_resource type="PackedScene" uid="uid://ct6pjsow6nb8y" path="res://Modules/Machines/MachineWeapons/bullet.tscn" id="1_drbyc"]
+[ext_resource type="Texture2D" uid="uid://bdvelp030xbil" path="res://Art Assets/bomb.png" id="2_4osdu"]
+[ext_resource type="Resource" uid="uid://qwdwwdysjngx" path="res://Modules/Machines/MachineWeapons/bomb.tres" id="3_xpeps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vogn4"]
+radius = 12.0104
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e0bm"]
+radius = 16.0078
+
+[node name="Bomb" instance=ExtResource("1_drbyc")]
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(0, -4)
+scale = Vector2(2, 2)
+texture = ExtResource("2_4osdu")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+shape = SubResource("CircleShape2D_vogn4")
+
+[node name="Hitbox" parent="." index="2"]
+weapon = ExtResource("3_xpeps")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_5e0bm")
+
+[editable path="Hitbox"]
