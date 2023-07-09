@@ -2,15 +2,23 @@ extends StaticBody2D
 
 @onready var hurtbox = $Hurtbox
 
+signal died
+
 @export var health = 100:
 	set(value):
 		health = value
 		if health <= 0:
+			var instance = preload("res://Modules/Main Menu/level_failed.tscn").instantiate()
+			var canvas_layer = CanvasLayer.new()
+			get_tree().root.add_child(canvas_layer)
+			canvas_layer.add_child(instance)
+			died.emit()
 			queue_free()
 
 func _ready() -> void:
 	GlobalInfo.shield_gen_running_changed.connect(shield_gen_down)
 	hurtbox.set_deferred("monitorable", false)
+	GlobalInfo.pow_gen = self
 
 func _on_power_timer_timeout():
 	GlobalInfo.power = GlobalInfo.power + 10

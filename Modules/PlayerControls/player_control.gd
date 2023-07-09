@@ -23,6 +23,13 @@ func _ready() -> void:
 	machine_instance_button_3.mouse_exited.connect(mouse_left_area)
 	deselect.mouse_exited.connect(mouse_left_area)
 	
+	GlobalInfo.hero.died.connect(func x(): 
+		deselect.pressed.emit()
+		queue_free())
+	GlobalInfo.pow_gen.died.connect(func x(): 
+		deselect.pressed.emit()
+		queue_free())
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click_debug"):
