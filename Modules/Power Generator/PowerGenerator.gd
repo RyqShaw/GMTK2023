@@ -10,14 +10,14 @@ extends StaticBody2D
 
 func _ready() -> void:
 	GlobalInfo.shield_gen_running_changed.connect(shield_gen_down)
+	hurtbox.set_deferred("monitorable", false)
 
 func _on_power_timer_timeout():
 	GlobalInfo.power = GlobalInfo.power + 10
 
 func shield_gen_down():
-	if GlobalInfo.shieldGenRunning < GlobalInfo.minShieldGen:
-		#ACTIVATE POWER GEN HURTBOX
-		print("HURTBOX ACTIVATED")
+	if GlobalInfo.shieldGenRunning <= GlobalInfo.minShieldGen:
+		hurtbox.set_deferred("monitorable", true)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	health -= area.damage
