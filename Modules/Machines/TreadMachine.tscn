@@ -38,7 +38,7 @@ animations = [{
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4fbv"]
-radius = 20.0
+radius = 10.0499
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d13q3"]
 
@@ -54,10 +54,10 @@ autoplay = "default"
 frame_progress = 0.901718
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_c2iju")
 
 [node name="InValidArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 3
 
@@ -78,6 +78,7 @@ collision_mask = 32
 shape = SubResource("CapsuleShape2D_d13q3")
 
 [node name="MachineSight" parent="." instance=ExtResource("6_f15k7")]
+visible = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
