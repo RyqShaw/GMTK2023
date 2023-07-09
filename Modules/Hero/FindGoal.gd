@@ -59,7 +59,7 @@ func update_movement_target():
 		if not possible_targets.is_empty():
 			var closest_target = possible_targets[0] 
 			for target in possible_targets:
-				if navigation_agent.distance_to_target() < closest_target.position.distance_to(hero.position):
+				if target.position.distance_to(hero.position) < closest_target.position.distance_to(hero.position):
 					closest_target = target
 			set_movement_target(closest_target.global_position)
 			movement_target = closest_target
