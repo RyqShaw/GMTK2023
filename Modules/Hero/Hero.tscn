@@ -458,7 +458,6 @@ visible = false
 shape = SubResource("CapsuleShape2D_g7sym")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="ResetNav" type="Timer" parent="."]
 wait_time = 0.25
@@ -478,12 +477,13 @@ script = ExtResource("6_uoo35")
 script = ExtResource("7_nmssn")
 
 [node name="Hurtbox" parent="." instance=ExtResource("8_peorm")]
-visible = false
+collision_mask = 128
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CapsuleShape2D_y0s6t")
 
 [node name="SwordHitbox" parent="." instance=ExtResource("8_h0wn4")]
+visible = false
 position = Vector2(20, 0)
 rotation = 1.5708
 collision_layer = 32
@@ -501,6 +501,7 @@ shape = SubResource("CapsuleShape2D_4g0hi")
 disabled = true
 
 [node name="EnemyDetection" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4
 

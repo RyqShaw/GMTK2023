@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct6pjsow6nb8y"]
+
+[ext_resource type="Script" path="res://Modules/Machines/MachineWeapons/bullet.gd" id="1_2db3b"]
+[ext_resource type="Texture2D" uid="uid://iw1i467g8dib" path="res://icon.svg" id="1_wt8uh"]
+[ext_resource type="PackedScene" uid="uid://b7cet0o5q6qsj" path="res://Modules/HurtAndHitboxes/Hitbox.tscn" id="2_ad8tp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb06m"]
+size = Vector2(12, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fxbv"]
+size = Vector2(12, 11)
+
+[node name="bullet" type="RigidBody2D"]
+collision_layer = 0
+gravity_scale = 0.0
+script = ExtResource("1_2db3b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.0859375, 0.0703125)
+texture = ExtResource("1_wt8uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_gb06m")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_ad8tp")]
+collision_layer = 128
+collision_mask = 8
+disabled_by_default = false
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1fxbv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Hitbox"]
