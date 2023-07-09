@@ -12,6 +12,7 @@ signal died
 			var canvas_layer = CanvasLayer.new()
 			get_tree().root.add_child(canvas_layer)
 			canvas_layer.add_child(instance)
+			GlobalInfo.power = 0
 			died.emit()
 			queue_free()
 

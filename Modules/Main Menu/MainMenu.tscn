@@ -32,15 +32,15 @@ alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Power Protection"
+text = "Kill William"
 label_settings = SubResource("LabelSettings_wfmb2")
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Your goal is to eliminate the daring Hero before he destroys enough shield generators and then your power generator
+text = "Your goal is to eliminate the daring Hero, Willaim, before he destroys enough shield generators and then your power generator
 
-You control the world and can summon machines to help distract and defeat the hero, but 1 or 2 machines wont be able to do the job!
+You control the world and can summon machines to help distract and defeat William, but 1 or 2 machines wont be able to do the job!
 
 The three machines you have access to are:
 Walnut9000: A very tough guy, but doesnt do much damage
