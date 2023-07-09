@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://no386o6xi3og"]
+[gd_scene load_steps=9 format=3 uid="uid://no386o6xi3og"]
 
+[ext_resource type="Script" path="res://Modules/Levels/Level.gd" id="1_hy10v"]
 [ext_resource type="PackedScene" uid="uid://cqccdy12kieqm" path="res://Modules/Map Creation Tools/Map Tileset/map_tileset.tscn" id="1_tica0"]
 [ext_resource type="PackedScene" uid="uid://h3dsp3ajvmbl" path="res://Modules/Power Generator/PowerGenerator.tscn" id="2_hljs7"]
+[ext_resource type="Script" path="res://Resources/level_info.gd" id="2_n320g"]
 [ext_resource type="PackedScene" uid="uid://ch5nxi1lsuyys" path="res://Modules/Hero/Hero.tscn" id="3_bl41v"]
 [ext_resource type="PackedScene" uid="uid://cvh2feaq6jcpv" path="res://Modules/PlayerCamera/PlayerCamera.tscn" id="4_6ujav"]
 [ext_resource type="PackedScene" uid="uid://bg8fov0doo7jv" path="res://Modules/PlayerControls/player_control.tscn" id="5_7bejq"]
 
+[sub_resource type="Resource" id="Resource_xp57h"]
+script = ExtResource("2_n320g")
+
 [node name="LevelBase" type="Node2D"]
+script = ExtResource("1_hy10v")
+level_info = SubResource("Resource_xp57h")
 
 [node name="MapTileset" parent="." instance=ExtResource("1_tica0")]
 
