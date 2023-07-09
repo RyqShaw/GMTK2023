@@ -45,15 +45,38 @@ alignment = 1
 layout_mode = 2
 text = "Walnut9000"
 
+[node name="Label" type="Label" parent="VBoxContainer/Creatures/MachineInstanceButton"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -30.0
+offset_right = 171.0
+offset_bottom = -7.0
+text = "Cost: 20"
+
 [node name="MachineInstanceButton2" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
 text = "Bomb Launcher"
 machine = ExtResource("3_aupbq")
 
+[node name="Label" type="Label" parent="VBoxContainer/Creatures/MachineInstanceButton2"]
+offset_left = 28.0
+offset_top = -30.0
+offset_right = 171.0
+offset_bottom = -7.0
+text = "Cost: 60
+"
+
 [node name="MachineInstanceButton3" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 layout_mode = 2
 text = "Turret"
 machine = ExtResource("4_11me8")
+
+[node name="Label" type="Label" parent="VBoxContainer/Creatures/MachineInstanceButton3"]
+offset_left = 28.0
+offset_top = -30.0
+offset_right = 171.0
+offset_bottom = -7.0
+text = "Cost: 30"
 
 [node name="Deselect" parent="VBoxContainer/Creatures" instance=ExtResource("2_ugy8w")]
 custom_minimum_size = Vector2(100, 0)

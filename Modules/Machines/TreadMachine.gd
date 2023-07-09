@@ -18,14 +18,14 @@ extends CharacterBody2D
 var bullet = preload("res://Modules/Machines/MachineWeapons/bullet.tscn")
 var knockback = Vector2.ZERO
 var player_visible := false
-var can_shoot := true
+var can_shoot := false
 
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
 	
 	navigation_agent.path_desired_distance = 40
 	navigation_agent.target_desired_distance = 40
-	
+	machine_stats.health = 30
 	call_deferred("actor_setup")
 	
 func actor_setup() -> void:

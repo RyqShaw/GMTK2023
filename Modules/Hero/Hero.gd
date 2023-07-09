@@ -23,6 +23,11 @@ func _ready() -> void:
 	hero_stats.connect("no_health", hero_dead)
 	level_info.hero = self
 	GlobalInfo.hero = self
+	update_health()
+	hero_stats.connect("health_changed", update_health)
+
+func update_health():
+	$Health.text = "Health: " + str(hero_stats.health)
 	
 func _physics_process(_delta: float) -> void:
 	pass

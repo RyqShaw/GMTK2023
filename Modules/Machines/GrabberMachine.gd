@@ -19,14 +19,14 @@ extends CharacterBody2D
 var bullet = preload("res://Modules/Machines/MachineWeapons/bomb.tscn")
 var knockback = Vector2.ZERO
 var player_visible := false
-var can_shoot := true
+var can_shoot := false
 
 func _ready() -> void:
 	machine_stats.connect("no_health", died)
 	
 	navigation_agent.path_desired_distance = 40
 	navigation_agent.target_desired_distance = 40
-	
+	machine_stats.health = 10
 	call_deferred("actor_setup")
 	
 func actor_setup() -> void:
@@ -63,10 +63,6 @@ func in_valid_spawn() -> void:
 		GlobalInfo.treadMachineNumber += 1
 
 func fire():
-	var current_agent_position := global_position
-	var next_path_position := navigation_agent.get_next_path_position()
-		
-	var new_vel := next_path_position - current_agent_position
 	var bullet_insatnce = bullet.instantiate()
 	bullet_insatnce.position = position
 	bullet_insatnce.rotation_degrees = rad_to_deg(get_angle_to(movement_target.position))
@@ -95,11 +91,11 @@ func died():
 func _on_update_timeout() -> void:
 	actor_setup()
 
-func _on_machine_sight_body_entered(body: Node2D) -> void:
+func _on_machine_sight_body_entered(_body: Node2D) -> void:
 	player_visible = true
 
 func _on_fire_cooldown_timeout() -> void:
 	can_shoot = true
 
-func _on_machine_sight_body_exited(body: Node2D) -> void:
+func _on_machine_sight_body_exited(_body: Node2D) -> void:
 	player_visible = false
