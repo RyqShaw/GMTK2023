@@ -32,7 +32,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Welcome to GAME"
+text = "Power Protection"
 label_settings = SubResource("LabelSettings_wfmb2")
 horizontal_alignment = 1
 
